@@ -1,0 +1,108 @@
+﻿<html>
+<head>
+    <title>Breakout 2.35</title>
+
+    <link href=breakoutCSS.css rel=stylesheet type="css/css">
+    <link href=breakoutMenuCSS.css rel=stylesheet type="css/css">
+</head>
+
+<body>
+    <div class="menu" id="menu" onmouseover="out(this)" onmouseout="into(this)">
+        <a class="header" href="http://www.rettoph.com/breakout" >Breakout v2.17 by Rettoph</a>
+        <div class="button01" onclick = "menuPause()" id="pauseButton" >Pause</div>
+        <div class="button01" onclick = "refresh()">Restart</div>
+        <hr />
+        <div class="button01" onclick="customLevel()">Load Custom Level</div>
+        <div class="button01" onclick="resetLines()">Reset Custom Level</div>
+        <div class="label01">1:</div><input class="levelLine" type="text" maxlength="20"; id="1Lines"/>
+        <div class="label01">2:</div><input class="levelLine" type="text" maxlength="20"; id="2Lines"/>
+        <div class="label01">3:</div><input class="levelLine" type="text" maxlength="20"; id="3Lines"/>
+        <div class="label01">4:</div><input class="levelLine" type="text" maxlength="20"; id="4Lines"/>
+        <div class="label01">5:</div><input class="levelLine" type="text" maxlength="20"; id="5Lines"/>
+        <div class="label01">6:</div><input class="levelLine" type="text" maxlength="20"; id="6Lines"/>
+        <div class="label01">7:</div><input class="levelLine" type="text" maxlength="20"; id="7Lines"/>
+        <div class="label01">8:</div><input class="levelLine" type="text" maxlength="20"; id="8Lines"/>
+        <div class="label01">9:</div><input class="levelLine" type="text" maxlength="20"; id="9Lines"/>
+        <div class="label01">10:</div><input class="levelLine" type="text" maxlength="20"; id="10Lines"/>
+        <div class="label01">11:</div><input class="levelLine" type="text" maxlength="20"; id="11Lines"/>
+        <div class="label01">12:</div><input class="levelLine" type="text" maxlength="20"; id="12Lines"/>
+        <div class="label01">13:</div><input class="levelLine" type="text" maxlength="20"; id="13Lines"/>
+        <div class="label01">14:</div><input class="levelLine" type="text" maxlength="20"; id="14Lines"/>
+        <div class="label01">15:</div><input class="levelLine" type="text" maxlength="20"; id="15Lines"/>
+        <hr />
+        <div class="button01" onclick = "convertLines()">Seperate</div>
+        <div class="label01">All:</div><input class="levelLine" type="text" id="allLines"/>
+        <hr />
+        <div class="button01" onclick="mouseControl()">Mouse Control</div>
+        <div class="button01" onclick="menuToggle()">Toggle Menu</div>
+    </div>
+
+    <div id="game" onclick="mouseLaunch()" onmousemove="mouseCoords(event)">
+        <div id="ball"></div>
+        <div id="paddle"></div>
+    </div>
+
+    <div id="info">
+        <table>
+            <tr>
+                <td style="border:1px solid white; width:299px; color:White;" id="infoScore">Score:</td>
+                <td style="border:1px solid white; width:299px; color:White;" id="infoLives">Lives:</td>
+            </tr>
+            <tr>
+                <td style="border:1px solid white; width:299px; color:White;" id="infoLevel">Level: 1</td>
+                <td style="border:1px solid white; width:299px; color:White;" id="infoBrickCount">Brick Count:</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="menu.js"></script>
+
+    <script src="brick.js"></script>
+    <script src="brickAir.js"></script>
+    <script src="brickRed.js"></script>
+    <script src="brickGreen.js"></script>
+    <script src="brickBlue.js"></script>
+    <script src="brickYellow.js"></script>
+    <script src="brickTnt.js"></script>
+    <script src="brickRandom.js"></script>
+    <script src="brickMetal.js"></script>
+    <script src="brickCheck.js"></script>
+
+    <script src="ballMove.js"></script>
+    <script src="ballHit.js"></script>
+
+    <script src="user.js"></script>
+    <script src="userPaddle.js"></script>
+    <script src="userCheck.js"></script>
+    <script src="userLaunch.js"></script>
+    <script src="userGame.js"></script>
+
+    <script src="level.js"></script>
+    <script src="levelDesigns.js"></script>
+    <script src="levelLoad.js"></script>
+    <script src="levelCurrent.js"></script>
+
+    <script src="html2canvas.js"></script>
+
+    <script src="timer.js"></script>
+
+    <script>
+
+        function printDiv(div) {
+            html2canvas([document.getElementById('cardview')], {
+                onrendered: function (canvas) {
+                    var img = canvas.toDataURL()
+                    $.post("save.php", { data: img }, function (file) {
+                        window.location.href = "download.php?path=" + file
+                    });
+                }
+            });
+        }
+
+        levelCurrent()
+        user.paddleX = 265;
+        clock.nextFunction = 2
+        timer()
+    </script>
+</body>
+</html>

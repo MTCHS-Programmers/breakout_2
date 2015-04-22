@@ -1,0 +1,84 @@
+﻿body 
+{
+    background-image:url('textures/background/background3.png');
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+.menu 
+{
+    background-image:url('textures/background/background.png');
+    width:300px;
+    height:99%;
+    border:1px solid white;
+    float:left;
+    position:relative;
+    left:-290px;
+}
+
+.header 
+{
+    text-align:center;
+    color:White;
+    border:1px solid black;
+    margin:5px;
+    background-color:rgba(10,10,10,0.1);
+    display:block;
+    text-decoration:none;
+}
+
+.header:hover 
+{
+    background-color:rgba(10,10,10,0.3);
+    cursor: pointer;
+}
+
+.header:active
+{
+    background-color:rgba(10,10,10,0.5);
+    cursor: pointer;
+}
+
+.button01 
+{
+    width:296px;
+    background-image:url('textures/background/background2.png');
+    border:1px solid black;
+    margin:1px;
+    text-align:center;
+    cursor: pointer;
+    color:White;
+}
+
+.button01:hover 
+{
+    background-image:url('textures/background/background4.png');
+    color:black;
+}
+
+.label01 
+{
+    width:25px;
+    text-align:right;
+    float:left;
+    color:White;
+}
+
+.levelLine
+{
+    width:271px;
+    float:left;
+    margin:2px;
+    background-color:rgba(0,0,0,0.1);
+    border:1px solid rgba(0,0,0,0.4);
+}
+
+.console
+{
+    width:296px;
+    margin:2px;
+    background-color:rgba(0,0,0,0.1);
+    border:1px solid rgba(0,0,0,0.4);
+}
